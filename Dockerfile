@@ -1,5 +1,5 @@
 # `python-base` sets up all our shared environment variables
-FROM python:3.11.1 as python-base
+FROM python:3.8.1-slim as python-base
 
     # python
 ENV PYTHONUNBUFFERED=1 \
@@ -39,8 +39,9 @@ RUN apt-get update \
         build-essential
 
 # install poetry - respects $POETRY_VERSION & $POETRY_HOME
-RUN curl -sSL https://install.python-poetry.org | python3 -
+RUN curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python
 
+# install postgres dependencies inside of Docker
 RUN apt-get update \
     && apt-get -y install libpq-dev gcc \
     && pip install psycopg2
@@ -62,3 +63,4 @@ COPY . /app/
 EXPOSE 8000
 
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+
