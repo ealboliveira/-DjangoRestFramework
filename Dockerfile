@@ -1,5 +1,6 @@
 # `python-base` sets up all our shared environment variables
-FROM python:3.8.1-slim as python-base
+FROM python:3.11.1 as python-base
+
     # python
 ENV PYTHONUNBUFFERED=1 \
     # prevents python creating .pyc files
@@ -25,6 +26,8 @@ ENV PYTHONUNBUFFERED=1 \
     # this is where our requirements + virtual environment will live
     PYSETUP_PATH="/opt/pysetup" \
     VENV_PATH="/opt/pysetup/.venv"
+
+
 # prepend poetry and venv to path
 ENV PATH="$POETRY_HOME/bin:$VENV_PATH/bin:$PATH"
 
@@ -34,8 +37,9 @@ RUN apt-get update \
         curl \
         # deps for building python deps
         build-essential
+
 # install poetry - respects $POETRY_VERSION & $POETRY_HOME
-RUN curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python
+RUN curl -sSL https://install.python-poetry.org | python3 -
 
 RUN apt-get update \
     && apt-get -y install libpq-dev gcc \
@@ -52,6 +56,9 @@ RUN poetry install --no-dev
 RUN poetry install
 
 WORKDIR /app
+
 COPY . /app/
+
 EXPOSE 8000
+
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
