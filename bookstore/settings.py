@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-!s3a#-k#1k=h@2)^)%%)8n1f5wvza^cp!m!@i^e7=78*ir$$#k
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'ebac-bookstore-api.herokuapp.com', 'ealboliveira.pythonanywhere.com']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    'rest_framework',
     "order",
     "product",
 ]
