@@ -3,23 +3,16 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-<<<<<<< HEAD
-SECRET_KEY = 'django-insecure-dy@2r%y7tszk#cm53b$&470#(kfj%6gdmzo#t_kz(@r_%yf!($('
-
-=======
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
+# Secret Key
 SECRET_KEY = "django-insecure-!s3a#-k#1k=h@2)^)%%)8n1f5wvza^cp!m!@i^e7=78*ir$$#k"
 
-# SECURITY WARNING: don't run with debug turned on in production!
->>>>>>> 663ea57d1eac29bd9bcba8e918ba630d0a4397ce
+# Debug
 DEBUG = True
 
+# Allowed Hosts
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'ealboliveira.pythonanywhere.com']
 
+# Installed Apps
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -27,12 +20,12 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "rest_framework",
     "order",
     "product",
-    'rest_framework',
 ]
 
-
+# Middleware
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -43,8 +36,10 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
+# Root URL Conf
 ROOT_URLCONF = "bookstore.urls"
 
+# Templates
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
@@ -61,8 +56,10 @@ TEMPLATES = [
     },
 ]
 
+# WSGI Application
 WSGI_APPLICATION = "bookstore.wsgi.application"
 
+# Databases
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
@@ -70,6 +67,7 @@ DATABASES = {
     }
 }
 
+# Password Validators
 AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
@@ -85,35 +83,14 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-<<<<<<< HEAD
-LANGUAGE_CODE = 'en-us'
-=======
-
-# Internationalization
-# https://docs.djangoproject.com/en/5.0/topics/i18n/
-
+# Language and Timezone
 LANGUAGE_CODE = "en-us"
->>>>>>> 663ea57d1eac29bd9bcba8e918ba630d0a4397ce
-
 TIME_ZONE = "UTC"
-
 USE_I18N = True
-
 USE_TZ = True
 
-<<<<<<< HEAD
-STATIC_URL = '/static/'
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-=======
-
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.0/howto/static-files/
-
 STATIC_URL = "static/"
 
 # Default primary key field type
-# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
->>>>>>> 663ea57d1eac29bd9bcba8e918ba630d0a4397ce
