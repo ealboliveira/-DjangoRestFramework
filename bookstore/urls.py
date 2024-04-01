@@ -12,3 +12,4 @@ urlpatterns = [
     path("api-token-auth/", obtain_auth_token, name="api_token_auth"),
     path("update_server/", views.update, name="update"),
     path("hello/", views.hello_world, name="hello_world"),
+]
